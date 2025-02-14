@@ -23,10 +23,10 @@ DEFAULT_WEIGHT = 100  # The nominal weight for a rule should be a positive numbe
 DEFAULT_SKIP = False  # Set to true to skip a rule
 DEFAULT_TTL_MIN = 0  # Time to live for check functions.
 DEFAULT_RUID = ""
-DEFAULT_FINISH_ON_FAIL = False  # If a splint function yields fail result stop processing
+DEFAULT_FINISH_ON_FAIL = False  # If a blick function yields fail result stop processing
 DEFAULT_SKIP_ON_NONE = False
 DEFAULT_FAIL_ON_NONE = False
-DEFAULT_INDEX = 1  # All splint functions are given an index of 1 when created.
+DEFAULT_INDEX = 1  # All blick functions are given an index of 1 when created.
 
 
 def _parse_ttl_string(input_string: str) -> float:

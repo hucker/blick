@@ -5,18 +5,18 @@ from setuptools import find_packages, setup  # type: ignore
 
 # Mostly AI generated setup.
 setup(
-    name='splint',
+    name='blick',
     version='0.1.0',
     description='A tool for checking rules against filesystems, databases, and APIs',
     long_description=open('README.md', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
     author='Chuck Bass',
     author_email='chuck@acrocad.net',
-    url='https://github.com/hucker/splint',
+    url='https://github.com/hucker/blick',
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'splintit=splint.splint_it:main',
+            'blickit=blick.blick_it:main',
         ],
     },
     classifiers=[

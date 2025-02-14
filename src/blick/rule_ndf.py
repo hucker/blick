@@ -8,7 +8,7 @@ from typing import Generator
 import narwhals as nw
 from narwhals.typing import FrameT
 
-from blick import BM, BR, any_to_str_list,BlickException,BlickYield
+from blick import BM, BR, BlickException, BlickYield, any_to_str_list
 
 
 @nw.narwhalify()
@@ -167,7 +167,7 @@ def rule_validate_ndf_values_by_col(df: FrameT,
                            min_rows is > max_rows.
 
         Yields:
-        - SR: An obj with the status of the validation (True if condition is met, False otherwise)
+        - BR: An obj with the status of the validation (True if condition is met, False otherwise)
               and a message describing the result.
     """
 
@@ -343,10 +343,10 @@ def rule_ndf_pf_columns(df: FrameT,
 
         pass_status = extended_bool(row[pf_col])
         row_description = BM.code(row[desc_col])
-        splint_result = BR(pass_status,
+        blick_result = BR(pass_status,
                            f"{row_description} {BM.pass_('passed.') if pass_status else BM.fail('failed.')}")
 
-        yield from summary_yield(splint_result)
+        yield from summary_yield(blick_result)
 
     if summary_only:
         yield from summary_yield.yield_summary(name=name)

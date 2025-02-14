@@ -121,7 +121,7 @@ class BlickYield:
     if not gen.yielded:
         yield from gen(BR(False,"Nothing to do"))
     if show_summary:
-        yield SR(status=self.fail_count==0,msg=f"{self.pass_count} passes and {self.fail_count} fails")
+        yield BR(status=self.fail_count==0,msg=f"{self.pass_count} passes and {self.fail_count} fails")
 
     """
 
@@ -214,11 +214,11 @@ class BlickYield:
 
     def __call__(self, *args_, **kwargs_) -> Generator[BlickResult, None, None]:
         """
-        Syntactic sugar to make yielding look just like creating the SR object at each
+        Syntactic sugar to make yielding look just like creating the BR object at each
         invocation of yield.  The code mimics creating a BlickResult manually
         since the *args/**kwargs are passed through via a functools.wrapper. 
         
-        y.results(SR(status=True,msg="Did it work?"))
+        y.results(BR(status=True,msg="Did it work?"))
         
         The __call_ override allows the following code to work correctly without having to manually
         instantiate a BlickResult. 
@@ -245,7 +245,7 @@ class BlickYield:
             
             or you can do
             
-            y(SR(status=True,msg="Did it work?")
+            y(BR(status=True,msg="Did it work?")
             
             Args:
                 *args:   Handle any function args

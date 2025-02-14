@@ -1,5 +1,5 @@
 """
-This example shows a NON-TRIVIAL example of how to use splint with streamlit.  An attempt is made
+This example shows a NON-TRIVIAL example of how to use blick with streamlit.  An attempt is made
 to use most of the major feature groups including:
 
 1) Packages/Modules/Functions
@@ -15,6 +15,7 @@ to use most of the major feature groups including:
 
 import streamlit as st
 
+import blick
 
 st.set_page_config(layout='wide')
 
@@ -49,7 +50,7 @@ def violet(text):
     return color('violet', text)
 
 
-def display_overview(checker: splint.BlickChecker) -> None:
+def display_overview(checker: blick.BlickChecker) -> None:
     """
     Display the results from the checker in a scoreboard format.
 
@@ -81,12 +82,12 @@ def yes_or_none(var):
     return 'Yes' if bool(var) else ''
 
 
-def display_results(results: list[splint.BlickResult]):
+def display_results(results: list[blick.BlickResult]):
     """
     Display the results in a Markdown table
 
     Args:
-        results: list of splint results
+        results: list of blick results
     """
     headers = ['Count', 'Status', 'Warn', 'Skipped', 'Tag', 'Level', 'Phase', 'RUID', 'Module Name', 'Function Name',
                'Message']
@@ -146,19 +147,19 @@ def display_package_info(pkg, checker):
     st.markdown(markdown_table)
 
 
-def display_json_results(checker: splint.BlickChecker):
+def display_json_results(checker: blick.BlickChecker):
     """
-    Display the JSON results of the given `splint.BlickChecker` object.
+    Display the JSON results of the given `blick.BlickChecker` object.
 
     Args:
-        checker: An instance of `splint.BlickChecker` containing the JSON results to be displayed.
+        checker: An instance of `blick.BlickChecker` containing the JSON results to be displayed.
     """
     st.write("JSON Results")
     with st.expander("Results:", expanded=True):
         st.json(checker.as_dict())
 
 
-class BlickStreamlitProgressBar(splint.BlickProgress):
+class BlickStreamlitProgressBar(blick.BlickProgress):
     """ Implementation of a progress bar for streamlit. """
 
     def __init__(self, progress_bar: st.progress):
@@ -200,8 +201,8 @@ def main():
     package_name = st.selectbox("Select Package", options=list(packages_mapping.keys()), index=0)
     package_folder = packages_mapping[package_name]
 
-    package = splint.BlickPackage(folder=package_folder)
-    checker = splint.BlickChecker(packages=[package], auto_setup=True)
+    package = blick.BlickPackage(folder=package_folder)
+    checker = blick.BlickChecker(packages=[package], auto_setup=True)
 
     with st.container(border=True):
         with st.container(border=True):
@@ -233,11 +234,11 @@ def main():
         else:
             prog_bar = st.progress(0, text=f"Rule checking status 0 of {checker.function_count}")
 
-            # IInstall progress bar that is nice for splint.
+            # IInstall progress bar that is nice for blick.
             checker.progress_callback = BlickStreamlitProgressBar(prog_bar)
 
             # Magic happens here
-            results: list[splint.BlickResult] = checker.run_all()
+            results: list[blick.BlickResult] = checker.run_all()
 
             with st.container(border=True):
                 display_overview(checker)

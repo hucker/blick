@@ -62,10 +62,10 @@ class BlickPackage:
             self.load_modules()
 
     def _verify_dir(self):
-        # Catastrophic, splint can't work with in check folder
+        # Catastrophic, blick can't work with in check folder
         if not self.folder.exists():
             raise BlickException(
-                f"The splint check folder '{self.folder}' does not exist."
+                f"The blick check folder '{self.folder}' does not exist."
             )
 
     @staticmethod

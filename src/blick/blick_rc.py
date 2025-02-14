@@ -1,5 +1,5 @@
 """
-Handles configuration abstraction for splint, includes classes to parse TOML and JSON.
+Handles configuration abstraction for blick, includes classes to parse TOML and JSON.
 """
 import re
 from typing import Sequence

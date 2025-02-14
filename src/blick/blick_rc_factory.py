@@ -35,7 +35,7 @@ if sys.version_info[:2] >= (3, 10):
             case str(s) if s.endswith('.ini'):
                 return BlickIniRC(cfg=s, section=section)
             case _:
-                raise BlickException('Invalid parameter type for splint_rc_factory.')
+                raise BlickException('Invalid parameter type for blick_rc_factory.')
 else:  # pragma: no cover
     def blick_rc_factory(param, section: str = "") -> BlickRC:
         """
@@ -56,4 +56,4 @@ else:  # pragma: no cover
             elif param.endswith('.ini'):
                 return BlickIniRC(cfg=param, section=section)
 
-        raise BlickException(f'Invalid parameter type for splint_rc_factory {param=}-{section=}.')
+        raise BlickException(f'Invalid parameter type for blick_rc_factory {param=}-{section=}.')

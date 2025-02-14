@@ -1,8 +1,8 @@
 """
 Classes to support formatting result output.
 
-It is assumed the output from splint will be used in different contexts, command line, web, markdown etc.  
-As such, this class generalizes the output of splint's messages.
+It is assumed the output from blick will be used in different contexts, command line, web, markdown etc.  
+As such, this class generalizes the output of blick's messages.
 
 Blink message may use BlickMarkup to format them.  In most cases the raw text is sufficient, but there
 are instances were nicer output is desired or required.
@@ -46,9 +46,9 @@ TAG_WHITE = 'white'
 
 class BlickMarkup:
     """
-    Baseline formatter class to be used by splint rules. 
+    Baseline formatter class to be used by blick rules. 
     
-    The idea of splint markup is a way to tag all result message with formatting information that
+    The idea of blick markup is a way to tag all result message with formatting information that
     may be used to provide the end user with a richer formatting experience targeting multiple
     output environments.  Since I use rich, markdown and streamlit and a bit of HTML I needed it
     to work for those platforms.  
@@ -216,7 +216,7 @@ BM = BlickMarkup()
 
 class BlickAbstractRender(ABC):
     """
-    Base class for all splint renderers.  This has a list of all supported tags, the abstract
+    Base class for all blick renderers.  This has a list of all supported tags, the abstract
     render method and a concrete cleanup that removes all un-rendered tags.
     """
 

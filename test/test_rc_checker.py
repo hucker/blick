@@ -61,8 +61,8 @@ def test_check_with_rc(func1, func2, func3):
 
     # TODO Fix this.  Levels should be ints not string 
     #  of ints.
-    # rc = splint.BlickRC(display_name='rc',levels=[1])
-    # ch = splint.BlickChecker(check_functions=[func1, func2, func3], auto_setup=True,rc=rc)
+    # rc = blick.BlickRC(display_name='rc',levels=[1])
+    # ch = blick.BlickChecker(check_functions=[func1, func2, func3], auto_setup=True,rc=rc)
     # assert ch.levels == ['1']
 
 

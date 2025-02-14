@@ -105,7 +105,7 @@ def rule_from_pdf_rule_ids(file_path: str,
         Yields:
         -------
         namedtuple
-           Namedtuple represented by SR where:
+           Namedtuple represented by BR where:
            `status` (bool) : Indicates 'pass' if True and 'fail' if False.
            `msg` (str) : Contains messages or notes associated with the rule.
            `skipped` (bool) : Indicates if the rule was skipped. True if yes, False otherwise.

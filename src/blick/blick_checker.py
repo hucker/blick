@@ -6,7 +6,6 @@ import datetime as dt
 from abc import ABC, abstractmethod
 from typing import Any, Sequence
 
-
 from .blick_exception import BlickException
 from .blick_format import BlickAbstractRender, BlickRenderText
 from .blick_function import BlickFunction
@@ -21,7 +20,7 @@ from .blick_score import ScoreByResult, ScoreStrategy
 
 # pylint: disable=R0903
 class BlickProgress(ABC):
-    """ Base class for all splint progress bars"""
+    """ Base class for all blick progress bars"""
 
     def __init__(self):
         pass
@@ -363,7 +362,7 @@ class BlickChecker:
 
     @staticmethod
     def _process_check_funcs(check_functions: list[BlickFunction] | None) -> list[BlickFunction]:
-        """ Load up an arbitrary list of splint functions.
+        """ Load up an arbitrary list of blick functions.
         These functions are tagged with adhoc for module"""
         if isinstance(check_functions, list) and len(check_functions) >= 1:
             for count, f in enumerate(check_functions, start=1):
@@ -429,9 +428,9 @@ class BlickChecker:
         # Now we need to filter out the ones that are not wanted. Filter functions return
         # True if the function should be kept
         self.collected = []
-        for splint_func in self.pre_collected:
-            if all(f(splint_func) for f in filter_functions):
-                self.collected.append(splint_func)
+        for blick_func in self.pre_collected:
+            if all(f(blick_func) for f in filter_functions):
+                self.collected.append(blick_func)
 
         # Now use the RC file.  Note that if you are running filter functions AND
         # an RC file this can be confusing.  Ideally you use one or the other. but

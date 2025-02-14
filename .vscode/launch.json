@@ -5,7 +5,7 @@
             "name": "Python: Typer Blicker Package Verbose",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}\\src\\cli\\splinter.py",
+          "program": "${workspaceFolder}\\src\\cli\\blicker.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}\\src\\cli",
             "env": {
@@ -24,7 +24,7 @@
             "name": "Python: Typer Blicker Package",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}\\src\\cli\\splinter.py",
+          "program": "${workspaceFolder}\\src\\cli\\blicker.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}\\src\\cli",
             "env": {
@@ -42,7 +42,7 @@
             "name": "Python: Typer Blicker Module Verbose",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}\\src\\cli\\splinter.py",
+          "program": "${workspaceFolder}\\src\\cli\\blicker.py",
             "console": "integratedTerminal",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}\\src;${workspaceFolder}"
@@ -60,7 +60,7 @@
             "name": "Python: Typer Blicker Module",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}\\src\\cli\\splinter.py",
+          "program": "${workspaceFolder}\\src\\cli\\blicker.py",
             "console": "integratedTerminal",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}\\src;${workspaceFolder}"
@@ -77,7 +77,7 @@
             "name": "Python: Typer Blicker Help",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}\\src\\cli\\splinter.py",
+          "program": "${workspaceFolder}\\src\\cli\\blicker.py",
             "console": "integratedTerminal",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}\\src;${workspaceFolder}"

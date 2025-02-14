@@ -15,7 +15,7 @@ from .blick_exception import BlickException
 class BlickEnvList(list):
     """
     Class representing a mutation-inhibited list. Mutational operations raise
-    splint_exception.BlickException.
+    blick_exception.BlickException.
 
     Python being dynamic means forceful mutations can succeed. This class serves
     to prevent accidental changes by raising exceptions for mutating methods.

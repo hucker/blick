@@ -101,8 +101,8 @@ def check_boolean():
 
 
 def check_yielded_values():
-    yield SR(status=get_drive_space('/foo') > 1_000_000_000, msg="Drive space check for foo")
-    yield SR(status=get_drive_space('/fum') > 1_000_000_000, msg="Drive space check for fum")
+    yield BR(status=get_drive_space('/foo') > 1_000_000_000, msg="Drive space check for foo")
+    yield BR(status=get_drive_space('/fum') > 1_000_000_000, msg="Drive space check for fum")
 ```
 
 As you might expect running this will also provide 3 passing test results with better messages.

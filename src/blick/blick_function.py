@@ -19,7 +19,7 @@ def result_hook_fix_blank_msg(sfunc: "BlickFunction",
                               result: BlickResult) -> BlickResult:
     """Fix the message of a result if it is blank.
 
-    This is an example of a result hook used by splint to write
+    This is an example of a result hook used by blick to write
     a useful message if the user did not provide one.
 
     Args:
@@ -235,7 +235,7 @@ class BlickFunction:
                 elif isinstance(results, bool):
                     results = [BlickResult(status=results)]
                 if not isinstance(results[0], BlickResult):
-                    raise BlickException(f"Invalid return from splint function {self.function_name}")
+                    raise BlickException(f"Invalid return from blick function {self.function_name}")
                 for count, r in enumerate(results, start=1):
                     # TODO: Time is wrong here, we should estimate each part taking
                     #       1/count of the total time
