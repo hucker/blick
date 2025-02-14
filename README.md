@@ -509,22 +509,25 @@ To run it against a folder and start a FastAPI endpoint do:
 
 `python -m blicker.py --pkg path/to/package_folder --api --port 8000`
 
-```text
-Usage: blicker.py [OPTIONS]
+```shell
+>>>python blicker.py --help 
+                                                                                                                                                                                                                                                                                              
+ Usage: blicker.py [OPTIONS]                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                              
+ Run Blick checks on a given package or module from command line.                                                                                                                                                                                                                             
+ 
+╭─ Options ──────────────────────────────────────────────────────────────────────────────╮
+│ --mod      -m      TEXT     The module to run rules against. [default: None]           │
+│ --pkg              TEXT     The package to run rules against. [default: None]          │
+│ --json     -j      TEXT     The JSON file to write results to. [default: None]         │
+│ --flat     -f               Should the output be flat or a hierarchy.                  │
+│ --score    -s               Print the score of the rules.                              │
+│ --api      -a               Start FastAPI.                                             │
+│ --port     -p      INTEGER  FastAPI Port [default: 8000]                               │
+│ --verbose  -v               Enable verbose output.                                     │
+│ --help                      Show this message and exit.                                │
+╰────────────────────────────────────────────────────────────────────────────────────────╯
 
- Run Blick checks on a given module or package using a typer command line app.
-
-╭─ Options ───────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ --mod      -m      TEXT  The module to run rules against. [default: None]                                       │
-│ --pkg              TEXT  The package to run rules against. [default: None]                                      │
-│ --json     -j      TEXT  The JSON file to write results to. [default: None]                                     │
-│ --flat     -f            Should the output be flat or a hierarchy. [default: True]                              │
-│ --score    -s            Print the score of the rules.                                                          │
-│ --api                    Make rules visible to FastAPI Endpoint                                                 │
-| --port     -p      INT   FastAPI Port [default=8000]                                                            │
-│ --verbose  -v            Enable verbose output.                                                                 │
-│ --help                   Show this message and exit.                                                            │
-╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
 ## FastAPI Interface Demo

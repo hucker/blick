@@ -132,7 +132,7 @@ def convert_to_tuple(input_val: tuple[float, list[str] | str] | None) -> tuple[f
         return None
     value, arr = input_val
     if isinstance(arr, str):
-        arr = arr.split(',')
+        arr = tuple(float(x) for x in arr.replace(',', ' ').split())
     return value, arr
 
 

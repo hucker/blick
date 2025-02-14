@@ -104,9 +104,9 @@ def display_results(results: list[blick.BlickResult]):
 
         c_f = green if r.status else red if not r.skipped else orange
 
-        # Append each row directly to the table
+        # Append each row directly to the table, note that I'm using the "rendered" view
         table.append(
-            f"| {count} | {c_f(r.status)} | {orange(yes_or_none(r.warn_msg))} | {violet(yes_or_none(r.skipped))}| {blue(r.tag)} | {r.level} | {r.phase} | {r.ruid} | {c_f(r.module_name)} | {c_f(r.func_name)} |{c_f(r.msg)} |")
+            f"| {count} | {c_f(r.status)} | {orange(yes_or_none(r.warn_msg))} | {violet(yes_or_none(r.skipped))}| {blue(r.tag)} | {r.level} | {r.phase} | {r.ruid} | {c_f(r.module_name)} | {c_f(r.func_name)} |{c_f(r.msg_rendered)} |")
 
         # Convert the list of rows into a single string with line breaks
     markdown_table = "\n".join(table)
@@ -200,9 +200,9 @@ def main():
 
     package_name = st.selectbox("Select Package", options=list(packages_mapping.keys()), index=0)
     package_folder = packages_mapping[package_name]
-
+    st_renderer = blick.BlickBasicStreamlitRenderer()
     package = blick.BlickPackage(folder=package_folder)
-    checker = blick.BlickChecker(packages=[package], auto_setup=True)
+    checker = blick.BlickChecker(packages=[package], renderer=st_renderer, auto_setup=True)
 
     with st.container(border=True):
         with st.container(border=True):
@@ -234,7 +234,7 @@ def main():
         else:
             prog_bar = st.progress(0, text=f"Rule checking status 0 of {checker.function_count}")
 
-            # IInstall progress bar that is nice for blick.
+            # Install progress bar that is nice for blick.
             checker.progress_callback = BlickStreamlitProgressBar(prog_bar)
 
             # Magic happens here

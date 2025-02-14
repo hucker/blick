@@ -12,9 +12,9 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from src.blick.rule_ndf import extended_bool
-from src.blick.rule_ndf import rule_ndf_columns_check, rule_ndf_pf_columns, rule_validate_ndf_values_by_col
 from src.blick.blick_function import BlickFunction
+from src.blick.rule_ndf import convert_to_tuple, extended_bool
+from src.blick.rule_ndf import rule_ndf_columns_check, rule_ndf_pf_columns, rule_validate_ndf_values_by_col
 
 
 @pytest.fixture(scope="module")
@@ -282,3 +282,15 @@ def test_rule_ndf_columns_high(type_dataframe_high):
                                                    correlation='correlation',
                                                    probability='probability'))
     assert results[0].status is False
+
+
+def test_conv_to_tuple():
+    # NOTE:you can compare floating point numbers for equality if the decimal
+    #     is a fractional power of 2.  The string conversion code depends on
+    #     this.  You could also do 1.0 and 2.0, but this shows there is no
+    #     integer "stuff" going on.
+    assert (1.23, (1, 1)) == convert_to_tuple([1.23, (1, 1)])
+    assert (1.23, (1.0, 1.0)) == convert_to_tuple([1.23, "1, 1"])
+    assert (1.23, (1.5, 1.25)) == convert_to_tuple([1.23, (1.50, 1.25)])
+    assert (1.23, (1.5, 1.25)) == convert_to_tuple([1.23, "1.50, 1.25"])
+    assert None is convert_to_tuple(None)
